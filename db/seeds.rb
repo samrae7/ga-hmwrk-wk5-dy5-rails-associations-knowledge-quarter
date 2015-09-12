@@ -19,4 +19,8 @@ end
   User.create(first_name:x)
 end
 
+User.first.activities.create(name: 'Hunterian Museum')
+
+User.last.activities.create(name: 'Charles Dickens Museum')
+
  puts "seeded with #{Activity.all.count} activities"

@@ -1,0 +1,7 @@
+SHOW FAVOURITE
+
+<% u1 = User.find(@favourite.user_id)%>
+
+<p><%= Activity.find(@favourite.activity_id).name %> favourited by <%= u1.first_name %><%= u1.surname %></p>
+
+<p>Notes: <%= @favourite.notes %></p>
