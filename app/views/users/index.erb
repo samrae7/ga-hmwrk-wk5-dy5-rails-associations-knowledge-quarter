@@ -1,0 +1,6 @@
+INDEX USERS
+<% @users.each do |user| %>
+  <% fullname = user.first_name.to_s + ' ' + user.surname.to_s %>
+  <h2><%=link_to fullname, user%></h2>
+  <p><%=user.username%></p>
+<% end %>

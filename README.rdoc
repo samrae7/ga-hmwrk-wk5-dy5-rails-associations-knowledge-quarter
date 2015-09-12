@@ -1,0 +1,43 @@
+== README
+
+This is a prototype for an app that allows users to 'favourite' activities to do in London, to help them plan a day out.
+
+There are three models: users, activities and favourites ( where a user saves an activity to refer to later). The basic idea is that users could then print an schedule, itinerary or map based on their chosen activities.
+
+QUESTIONS I HAVE ABOUT THIS PROJECT
+
+1/ (TEST THIS) In the activities controller I have included a private method that defines activity_params as
+
+params.require(:activity).permit(:name, :venue, :description, :image_url, :site_url)
+
+I know that this is to do with strong parameters and means that name, venue, description, image url and so on will all be premitted as params ( ie they are whitelisted), but I'm unclear on what the 'require (:activity)' bit is. As far as I can see the :activity is a hash of all the other values so does 'require (:activity)' just mean that this hash has to exist in order for the methods that call 'activity_params to run? To me it seems that they wouldn't run in any case because they wouldn't have any arguments at all.
+
+
+
+
+This README would normally document whatever steps are necessary to get the
+application up and running.
+
+Things you may want to cover:
+
+* Ruby version
+
+* System dependencies
+
+* Configuration
+
+* Database creation
+
+* Database initialization
+
+* How to run the test suite
+
+* Services (job queues, cache servers, search engines, etc.)
+
+* Deployment instructions
+
+* ...
+
+
+Please feel free to use a different markup language if you do not plan to run
+<tt>rake doc:app</tt>.

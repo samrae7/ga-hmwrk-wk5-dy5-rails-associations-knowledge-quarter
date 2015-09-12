@@ -1,0 +1,8 @@
+ACTIVITIES INDEX
+
+<% @activities.each do |activity| %>
+  <img src="<%=activity.image_url%>">
+  <h2><%= link_to activity.name, activity %></h2>
+  <h3><%=activity.venue%></h3>
+  <% end %>
+  
