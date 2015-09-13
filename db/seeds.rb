@@ -19,7 +19,11 @@ end
   User.create(first_name:x)
 end
 
-User.first.activities.create(name: 'Hunterian Museum')
+User.all.each_with_index do |user, index|
+
+  user.activities.create(name: 'Hunterian Museum' + index.to_s )
+
+end
 
 User.last.activities.create(name: 'Charles Dickens Museum')
 
