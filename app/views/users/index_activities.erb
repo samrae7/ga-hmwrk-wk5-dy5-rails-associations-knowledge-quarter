@@ -1,0 +1,9 @@
+<p>USER INDEX ACTIVITIES</p>
+
+<p>User <%= @user.first_name.to_s + ' ' + @user.surname.to_s%> </p>
+
+<% @activities.each do |activity| %>
+  <img src="<%=activity.image_url%>">
+  <h2><%= link_to activity.name, activity %></h2>
+  <h3><%=activity.venue%></h3>
+  <% end %>

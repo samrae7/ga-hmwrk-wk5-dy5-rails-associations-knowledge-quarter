@@ -5,6 +5,15 @@ Rails.application.routes.draw do
   resources :activities
   resources :users
   resources :favourites
+
+  get '/users/:user_id/activities' => 'users#index_activities' 
+
+  get '/users/:user_id/activities/:activity_id' => 'users#show_activity' 
+
+
+  post '/users/:user_id/activities/:activity_id' => 'users#add_favourite' 
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

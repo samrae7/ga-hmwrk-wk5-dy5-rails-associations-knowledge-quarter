@@ -2,9 +2,35 @@
 
 This is a prototype for an app that allows users to 'favourite' activities to do in London, to help them plan a day out.
 
-There are three models: users, activities and favourites ( where a user saves an activity to refer to later). The basic idea is that users could then print an schedule, itinerary or map based on their chosen activities.
+There are three models: users, activities and favourites ( where a user saves an activity to refer to later). The basic idea is that users could then print a schedule, itinerary or map based on their chosen activities.avou
 
-QUESTIONS I HAVE ABOUT THIS PROJECT
+So far I have routes and controllers written for all three models and there are views for index and show for all three.
+
+http://localhost:3000/
+http://localhost:3000/activities/1
+
+http://localhost:3000/users/
+http://localhost:3000/users/1
+
+http://localhost:3000/favourites
+http://localhost:3000/favourites/3
+
+I tested out the associations and they seem to work fine in pry eg. I can add a new or existing activity to a user and it shows in favourite.all. HOWEVER I wanted to create custom routes and views that allow the user to:
+
+1/ Select a user
+
+2/ See a list of activities
+
+3/choose one of them and then favourite that activity for that user.
+
+4/ See a list of all favouroited activities for a particular user.
+
+I got stuck while trying to make the action 'add_favourite' work in the uset controller. The error I got was ActionController::InvalidAuthenticityToken
+
+which I know means that I need to whitelist the params that are being passed to that view, but I don't know how to do that. It's not the same as before as I am not coming from a form.
+
+
+OTHER QUESTIONS
 
 1/ (TEST THIS) In the activities controller I have included a private method that defines activity_params as
 
@@ -13,31 +39,4 @@ params.require(:activity).permit(:name, :venue, :description, :image_url, :site_
 I know that this is to do with strong parameters and means that name, venue, description, image url and so on will all be premitted as params ( ie they are whitelisted), but I'm unclear on what the 'require (:activity)' bit is. As far as I can see the :activity is a hash of all the other values so does 'require (:activity)' just mean that this hash has to exist in order for the methods that call 'activity_params to run? To me it seems that they wouldn't run in any case because they wouldn't have any arguments at all.
 
 
-
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+NB: there is dummy data in the seed.rb file

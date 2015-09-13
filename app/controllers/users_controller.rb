@@ -41,6 +41,31 @@ class UsersController < ApplicationController
     redirect_to users
   end
 
+  def index_activities
+    @user = User.find(params[:user_id])
+    @activities = Activity.all
+  end
+
+
+  def show_activity
+    @user = User.find(params[:user_id])
+    @activity = Activity.find(params[:activity_id])
+  end
+
+
+  def add_favourite
+
+    params.permit(:user_id, :activity_id) 
+    @user = User.find(params[:user_id])
+    @activity = Activity.find(params[:activity_id])
+
+
+    @user.activities << @activity
+
+
+    erb :show_activity
+  end
+ 
 
 private
 

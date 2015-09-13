@@ -1,0 +1,19 @@
+<p>Current User <%= @user.first_name.to_s + ' ' + @user.surname.to_s%> </p>
+
+<img src="<%=@activity.image_url%>"
+<a href="<%=@activity.site_url%>">
+  <h2><%=@activity.name%></h2>
+</a>
+<h3><%=@activity.venue%></h3>
+<p><%=@activity.description%></p>
+
+<% if @user.activities.to_a.include?(@activity) %>
+  <p><%='Favourited'%></p>
+  <% else %>
+<form action=<%="/users/#{@user.id}/activities/#{@activity.id}"%> method="post">
+  <button>
+  <%='Add to' + @user.first_name + "'s favourites"%>
+  </button>
+</form>
+
+<% end %>
