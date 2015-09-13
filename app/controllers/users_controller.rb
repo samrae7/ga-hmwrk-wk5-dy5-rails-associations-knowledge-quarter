@@ -55,7 +55,7 @@ class UsersController < ApplicationController
 
   def add_favourite
 
-    params.permit(:user_id, :activity_id) 
+    params.fetch(:favourite, {}).permit(:user_id, :activity_id)
     @user = User.find(params[:user_id])
     @activity = Activity.find(params[:activity_id])
 
